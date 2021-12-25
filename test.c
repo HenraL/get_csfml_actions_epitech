@@ -5,6 +5,9 @@
 **
 */
 
-#include "include/my_lib.h"
+#include "include\my_lib.h"
 
-my_putstr("The files work.");
+int main(int argc, char** argv)
+{
+    my_putstr("The files work.");
+}

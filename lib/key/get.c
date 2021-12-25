@@ -5,8 +5,7 @@
 ** get.c
 */
 
-#include "../../include/structs.h"
-#include <SFML/Window/Event.h>
+#include "../../include/my_key.h"
 
 move_t get_key(move_t move)
 {

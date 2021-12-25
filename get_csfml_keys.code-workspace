@@ -4,5 +4,10 @@
 			"path": "."
 		}
     ],
-    "settings": {}
+    "settings": {
+        "files.associations": {
+            "*.txt": "plaintext",
+            "event.h": "c"
+        }
+    }
 }

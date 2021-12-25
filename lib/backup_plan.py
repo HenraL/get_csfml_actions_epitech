@@ -1,5 +1,5 @@
 import os
-
+os.system("echo off")
 os.system("color 0A")
 FOLDERS = ["key","my","window"]
 
@@ -11,3 +11,4 @@ for i in range(len(FOLDERS)):
     print("..")
     os.chdir("..")
 print("lib/backup_plan.bat, done")
+os.system("echo on")

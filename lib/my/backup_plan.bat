@@ -1,5 +1,5 @@
-color 0A
 echo off
+color 0A
 
 set MODULE_NAME=my
 set NAME_MY=lib%MODULE_NAME%.a
