@@ -5,4 +5,6 @@
 **
 */
 
-#include ""
+#include "include/my_lib.h"
+
+my_putstr("The files work.");

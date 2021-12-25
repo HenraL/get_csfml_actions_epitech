@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my_screensaver - structs.h
 ** File description:
-** jiteer jitter
+** jitter jitter
 */
 
 #ifndef STRUCT_H_
@@ -21,5 +21,13 @@ typedef struct s_framebuffer {
     unsigned int height;
     sfUint8* pixels;
 } framebuffer_t;
+
+typedef struct move_s {
+    int up;
+    int down;
+    int left;
+    int right;
+    int center;
+} move_t;
 
 #endif

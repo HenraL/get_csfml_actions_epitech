@@ -5,14 +5,16 @@ set MODULE_NAME=my
 set NAME_MY=lib%MODULE_NAME%.a
 set HEADER=-I..\..\include
 
-echo "gcc -c append\\my_append_elem.c %HEADER%"
-gcc -c append\my_append_elem.c %HEADER%
-set OBJ=my_append_elem.o
+set FILENAME="get"
+echo "gcc -c %FILENAME%.c %HEADER%"
+gcc -c %FILENAME%.c %HEADER%
+set OBJ=%FILENAME%.o
 
-echo "gcc -c append\\my_append_elem.c %HEADER%"
-gcc -c append\my_append_elem.c %HEADER%
-set OBJ=%OBJ% my_append_elem.o
+set FILENAME="display"
+echo "gcc -c  %FILENAME%.c %HEADER%"
+gcc -c %FILENAME%.c %HEADER%
+set OBJ=%OBJ% %FILENAME%.o
 
-echo "ar rc %NAME_MY% %OBJ%"
-ar rc %NAME_MY% %OBJ%
-echo "Done for %MODULE_NAME%"
+@REM echo "ar rc %NAME_MY% %OBJ%"
+@REM ar rc %NAME_MY% %OBJ%
+@REM echo "Done for %MODULE_NAME%"
