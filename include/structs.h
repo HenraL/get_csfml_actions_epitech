@@ -16,11 +16,21 @@
 
 #include<stdio.h>
 
+#ifndef FRAMEBUFFERH
 typedef struct s_framebuffer {
     unsigned int width;
     unsigned int height;
-    sfUint8* pixels;
+    sfUint8 *pixels;
 } framebuffer_t;
+
+#endif
+typedef struct sleepy {
+    int microseconds;
+    int milliseconds;
+    int seconds;
+    int minutes;
+    int hours;
+} sleepy;
 
 typedef struct move_s {
     int up;

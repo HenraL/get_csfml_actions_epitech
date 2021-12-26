@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my_screensaver - my_dict.h
 ** File description:
-** abc
+** jitter jitter
 */
 
 #ifndef MY_DICT_H_

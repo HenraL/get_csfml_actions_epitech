@@ -13,6 +13,5 @@ int my_square_anim(int *pixel_color, int size, int speed);
 int my_gradient_anim(int *pixel_color, int size, int speed);
 int my_gradient(int *pixel_color, int size, int speed);
 int make_rand_form(int *pixel_color, int size, int speed);
-int my_square_face(int *pixel_color, int size, int speed);
 
 #endif

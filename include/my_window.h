@@ -2,11 +2,14 @@
 ** EPITECH PROJECT, 2021
 ** my_screensaver - my_window.h
 ** File description:
-** abc
+** jitter jitter
 */
 
 #ifndef MY_WINDOW_H_
 #define MY_WINDOW_H_
+
+#include <SFML/Graphics.h>
+#include "structs.h"
 
 // #include "framebuffer.h"
 

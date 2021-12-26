@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** my_screensaver - include_all.h
 ** File description:
-** abc
+** jitter jitter
 */
 
 #ifndef INCLUDE_ALL_H_

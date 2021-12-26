@@ -1,0 +1,34 @@
+test.c
+*.md
+*.code-workspace
+*.out
+*.a
+*.o
+*.text
+*.data
+*.bss
+*.note
+*.note.GNU-stack
+*.eh_frame
+*.comment
+*.ABS
+*.*ABS*
+*.sh
+*.txt
+*.pdf
+*.todo
+# *.jpg
+*.html
+*.css
+*.js
+*.xcf
+*.json
+# *.blinkmind
+.vscode/*
+test_files/*
+third-parties/*
+lesson/*
+
+lib/audio/load_audio.c
+lib/audio/play_audio.c
+lib/audio/free_audio.c

@@ -1,13 +1,15 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
+    "folders": [
+        {
+            "path": "."
+        }
     ],
     "settings": {
         "files.associations": {
             "*.txt": "plaintext",
-            "event.h": "c"
+            "event.h": "c",
+            "my_key.h": "c",
+            "structs.h": "c"
         }
     }
 }

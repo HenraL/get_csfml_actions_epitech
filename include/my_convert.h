@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** Bootstrap - libmy.h
 ** File description:
-** abc
+** jitter jitter
 */
 
 #ifndef MY_CONVERT_H_
