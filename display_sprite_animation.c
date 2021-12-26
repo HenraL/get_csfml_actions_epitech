@@ -287,12 +287,13 @@ int main(void)
     background_sprite1 = rescale_sprite(background_sprite1, 1, 0.5);
     background_sprite2 = rescale_sprite(background_sprite2, 1, 0.5);
     // background_sprite3 = rescale_sprite(background_sprite3, 1, 0.5);
-    // ice sprites //
-    ice_sprite1 = rescale_sprite(ice_sprite1, 1, 0.5);
-    ice_sprite2 = rescale_sprite(ice_sprite2, 1, 0.5);
+
     // path sprites //
     path_sprite1 = rescale_sprite(path_sprite1, 1, 0.5);
     path_sprite2 = rescale_sprite(path_sprite2, 1, 0.5);
+    // ice sprites //
+    ice_sprite1 = rescale_sprite(ice_sprite1, 1, 0.5);
+    ice_sprite2 = rescale_sprite(ice_sprite2, 1, 0.5);
     /* initialising index counters */
     // background //
     int bs1_x = 0;
@@ -302,10 +303,17 @@ int main(void)
     // int bs3_x = (background_image_width * 2);
     // int bs3_y = 0;
     // path //
+    int p_indent_level = 350;
     int ps1_x = 0;
-    int ps1_y = 0;
+    int ps1_y = 0 + p_indent_level;
     int ps2_x = path_image_width;
-    int ps2_y = 0;
+    int ps2_y = 0 + p_indent_level;
+    // ice //
+    int i_indent_level = p_indent_level + 125;
+    int is1_x = 0;
+    int is1_y = 0 + i_indent_level;
+    int is2_x = ice_image_width;
+    int is2_y = 0 + i_indent_level;
 
     int count_x = 0;
     int count_y = 0; //x
@@ -332,6 +340,8 @@ int main(void)
         path_sprite1 = move_sprite(path_sprite1, ps1_x, ps1_y);
         path_sprite2 = move_sprite(path_sprite2, ps2_x, ps2_y);
         // ice //
+        ice_sprite1 = move_sprite(ice_sprite1, is1_x, is1_y);
+        ice_sprite2 = move_sprite(ice_sprite2, is2_x, is2_y);
         /* Display sprites in the window */
         // background //
         sfRenderWindow_drawSprite(window, background_sprite1.sprite, NULL);
@@ -341,6 +351,8 @@ int main(void)
         sfRenderWindow_drawSprite(window, path_sprite1.sprite, NULL);
         sfRenderWindow_drawSprite(window, path_sprite2.sprite, NULL);
         // ice //
+        sfRenderWindow_drawSprite(window, ice_sprite1.sprite, NULL);
+        sfRenderWindow_drawSprite(window, ice_sprite2.sprite, NULL);
         //v- Display the window
         sfRenderWindow_display(window);
         sfRenderWindow_clear(window, sfBlack);
@@ -371,6 +383,13 @@ int main(void)
         if (ps2_x <= (path_image_width * -1)) {
             ps1_x = max_width;
         }
+        // ice //
+        if (is1_x <= (ice_image_width * -1)) {
+            is1_x = max_width;
+        }
+        if (is2_x <= (ice_image_width * -1)) {
+            is1_x = max_width;
+        }
         /*changing values of indexes */
         // background //
         bs1_x -= 1;
@@ -380,6 +399,8 @@ int main(void)
         ps1_x -= 5;
         ps2_x -= 5;
         // ice //
+        is1_x -= 10;
+        is2_x -= 10;
         sfRenderWindow_setFramerateLimit(window, 120);
     }
     sfRenderWindow_destroy(window);
