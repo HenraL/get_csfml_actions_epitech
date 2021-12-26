@@ -218,7 +218,7 @@ int main(void)
     // path path //
     char *path_image_path = "img/background/path.png";
     // ice path //
-    char *ice_path_path = "img/background/ice.png";
+    char *ice_image_path = "img/background/ice.png";
     sfRenderWindow *window;
     framebuffer_t *fb;
     /* Window size */
@@ -228,6 +228,7 @@ int main(void)
     // Background image settings //
     sprite_t background_sprite1;
     sprite_t background_sprite2;
+    // sprite_t background_sprite3;
     // path image settings //
     sprite_t path_sprite1;
     sprite_t path_sprite2;
@@ -236,7 +237,8 @@ int main(void)
     sprite_t ice_sprite2;
     // event generation //
     sfEvent event;
-    // sprite_t sprite3;
+    /* loading the sprites */
+    // background sprites //
     background_sprite1 = load_sprite(background_image_path);
     if (background_sprite1.status == 84) {
         return 84;
@@ -245,32 +247,72 @@ int main(void)
     if (background_sprite2.status == 84) {
         return 84;
     }
-    // sprite3 = load_sprite(image_path2);
-    // if (sprite3.status == 84) {
+    // background_sprite3 = load_sprite(image_path2);
+    // if (background_sprite3.status == 84) {
     //     return 84;
     // }
     printf("background_sprite1.previous_scale_x = %.8f\n", background_sprite1.previous_scale_x);
     printf("background_sprite2.previous_scale_x = %.8f\n", background_sprite2.previous_scale_x);
-    // printf("sprite3.previous_scale_x = %.8f\n", sprite3.previous_scale_x);
-    int image_width = 1500;//1920;
-    int image_height = 700;
+    // printf("background_sprite3.previous_scale_x = %.8f\n", background_sprite3.previous_scale_x);
+    // path sprites //
+    path_sprite1 = load_sprite(path_image_path);
+    if (path_sprite1.status == 84) {
+        return 84;
+    }
+    path_sprite2 = load_sprite(path_image_path);
+    if (path_sprite2.status == 84) {
+        return 84;
+    }
+    // ice sprites //
+    ice_sprite1 = load_sprite(ice_image_path);
+    if (ice_sprite1.status == 84) {
+        return 84;
+    }
+    ice_sprite2 = load_sprite(ice_image_path);
+    if (ice_sprite2.status == 84) {
+        return 84;
+    }
+    /* Setting the size of the images */
+    // Background settings //
+    int background_image_width = 1500;//1920;
+    int background_image_height = 700;
+    // path settings //
+    int path_image_width = 1500;//1920;
+    int path_image_height = 700;
+    // ice settings //
+    int ice_image_width = 1500;//1920;
+    int ice_image_height = 700;
+    /* rescaling sprites */
+    // Background sprites //
     background_sprite1 = rescale_sprite(background_sprite1, 1, 0.5);
     background_sprite2 = rescale_sprite(background_sprite2, 1, 0.5);
-    // sprite3 = rescale_sprite(sprite3, 1, 0.5);
-    int s1_x = 0;
-    int s1_y = 0;
-    int s2_x = image_width;
-    int s2_y = 0;
-    // int s3_x = (image_width * 2);
-    // int s3_y = 0;
-    /* path image settings */
+    // background_sprite3 = rescale_sprite(background_sprite3, 1, 0.5);
+    // ice sprites //
+    ice_sprite1 = rescale_sprite(ice_sprite1, 1, 0.5);
+    ice_sprite2 = rescale_sprite(ice_sprite2, 1, 0.5);
+    // path sprites //
+    path_sprite1 = rescale_sprite(path_sprite1, 1, 0.5);
+    path_sprite2 = rescale_sprite(path_sprite2, 1, 0.5);
+    /* initialising index counters */
+    // background //
+    int bs1_x = 0;
+    int bs1_y = 0;
+    int bs2_x = background_image_width;
+    int bs2_y = 0;
+    // int bs3_x = (background_image_width * 2);
+    // int bs3_y = 0;
+    // path //
+    int ps1_x = 0;
+    int ps1_y = 0;
+    int ps2_x = path_image_width;
+    int ps2_y = 0;
 
     int count_x = 0;
     int count_y = 0; //x
     int factor = 0;
-    printf("s1_x = %d\n", s1_x);
-    printf("s2_x = %d\n", s2_x);
-    // printf("s3_x = %d\n", s3_x);
+    printf("bs1_x = %d\n", bs1_x);
+    printf("bs2_x = %d\n", bs2_x);
+    // printf("bs3_x = %d\n", bs3_x);
     //1- Create the ressources
     window = createWindow(max_width, max_height);
     fb = framebuffer_create(max_width, max_height);
@@ -281,41 +323,76 @@ int main(void)
             if (event.type == sfEvtClosed)
                 sfRenderWindow_close(window);
         }
-        background_sprite1 = move_sprite(background_sprite1, s1_x, s1_y);
-        background_sprite2 = move_sprite(background_sprite2, s2_x, s2_y);
-        // sprite3 = move_sprite(sprite3, s3_x, s3_y);
+        /* Move sprites */
+        // Background //
+        background_sprite1 = move_sprite(background_sprite1, bs1_x, bs1_y);
+        background_sprite2 = move_sprite(background_sprite2, bs2_x, bs2_y);
+        // background_sprite3 = move_sprite(background_sprite3, bs3_x, bs3_y);
+        // path //
+        path_sprite1 = move_sprite(path_sprite1, ps1_x, ps1_y);
+        path_sprite2 = move_sprite(path_sprite2, ps2_x, ps2_y);
+        // ice //
+        /* Display sprites in the window */
+        // background //
         sfRenderWindow_drawSprite(window, background_sprite1.sprite, NULL);
         sfRenderWindow_drawSprite(window, background_sprite2.sprite, NULL);
-        // sfRenderWindow_drawSprite(window, sprite3.sprite, NULL);
+        // sfRenderWindow_drawSprite(window, background_sprite3.sprite, NULL);
+        // path //
+        sfRenderWindow_drawSprite(window, path_sprite1.sprite, NULL);
+        sfRenderWindow_drawSprite(window, path_sprite2.sprite, NULL);
+        // ice //
         //v- Display the window
         sfRenderWindow_display(window);
         sfRenderWindow_clear(window, sfBlack);
-
-        // printf("s1_x = %d\n", s1_x);
-        // printf("s2_x = %d\n", s2_x);
-        // printf("s3_x = %d\n", s3_x);
-        if (s1_x <= (image_width * -1)) {
-            // s1_x = max_width - background_sprite1.previous_scale_x;
-            s1_x = max_width;
-            // printf("s1_x = %d\n", s1_x);
+        /* Debugging info for vars */
+        // printf("bs1_x = %d\n", bs1_x);
+        // printf("bs2_x = %d\n", bs2_x);
+        // printf("bs3_x = %d\n", bs3_x);
+        /* conditions for the index to reset */
+        // Background //
+        if (bs1_x <= (background_image_width * -1)) {
+            // bs1_x = max_width - background_sprite1.previous_scale_x;
+            bs1_x = max_width;
+            // printf("bs1_x = %d\n", bs1_x);
         }
-        if (s2_x <= (image_width * -1)) {
-            // s2_x = max_width - background_sprite2.previous_scale_x;
-            s2_x = max_width;
-            // printf("s2_x = %d\n", s2_x);
+        if (bs2_x <= (background_image_width * -1)) {
+            // bs2_x = max_width - background_sprite2.previous_scale_x;
+            bs2_x = max_width;
+            // printf("bs2_x = %d\n", bs2_x);
         }
-        // if (s3_x <= (image_width * -1)) {
-            // s3_x = max_width - sprite3.previous_scale_x;
-            // s3_x = max_width;
+        // if (bs3_x <= (background_image_width * -1)) {
+            // bs3_x = max_width - background_sprite3.previous_scale_x;
+            // bs3_x = max_width;
         // }
-        s1_x -= 1;
-        s2_x -= 1;
-        // s3_x -= 1;
+        // path //
+        if (ps1_x <= (path_image_width * -1)) {
+            ps1_x = max_width;
+        }
+        if (ps2_x <= (path_image_width * -1)) {
+            ps1_x = max_width;
+        }
+        /*changing values of indexes */
+        // background //
+        bs1_x -= 1;
+        bs2_x -= 1;
+        // bs3_x -= 1;
+        // path //
+        ps1_x -= 5;
+        ps2_x -= 5;
+        // ice //
         sfRenderWindow_setFramerateLimit(window, 120);
     }
     sfRenderWindow_destroy(window);
     framebuffer_destroy(fb);
+    /* freeing ressources */
+    // background sprites //
     free_sprite(background_sprite1);
     free_sprite(background_sprite2);
-    // free_sprite(sprite3);
+    // free_sprite(background_sprite3);
+    // path sprite //
+    free_sprite(path_sprite1);
+    free_sprite(path_sprite2);
+    // ice_sprite //
+    free_sprite(ice_sprite1);
+    free_sprite(ice_sprite2);
 }

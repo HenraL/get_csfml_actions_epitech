@@ -2,15 +2,15 @@
 ** EPITECH PROJECT, 2021
 ** my_screensaver - create_framebuffer.c
 ** File description:
-** jitter jitter
+** abx
 */
 
 #include "../../include/framebuffer.h"
 #include "../../include/my_window.h"
 
-framebuffer_t* framebuffer_create(unsigned int width, unsigned int height)
+framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
 {
-    framebuffer_t* framebuffer = malloc(sizeof(framebuffer_t));
+    framebuffer_t *framebuffer = malloc(sizeof(framebuffer_t));
 
     framebuffer->width = width;
     framebuffer->height = height;

@@ -16,6 +16,6 @@ sfRenderWindow *createWindow(unsigned int width, unsigned int height)
     mode.width = width;
     mode.height = height;
     mode.bitsPerPixel = 32;
-    window = sfRenderWindow_create(mode, "Runner", sfDefaultStyle, NULL);
+    window = sfRenderWindow_create(mode, "ScreenSaver", sfDefaultStyle, NULL);
     return (window);
 }

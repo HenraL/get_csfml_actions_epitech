@@ -1,0 +1,30 @@
+##
+## EPITECH PROJECT, 2021
+## Task01 - makefile
+## File description:
+## jitter jitter
+##
+
+SRC	=	hex_to_255.c
+
+
+OBJ	=	$(SRC:.c=.o)
+
+NAME	=	libconvert.a
+all:	$(NAME)
+$(NAME):	$(OBJ)
+	gcc -c  $(SRC)
+	ar rc $(NAME) $(OBJ)
+	rm $(OBJ)
+	rm *.o
+	echo "Finished"
+clean:
+	rm -f $(OBJ)
+	rm -f *.o
+fclean: clean
+	rm -f $(NAME)
+
+re:	fclean all
+
+auteur:
+	echo $(USER) > auteur
