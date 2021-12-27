@@ -7,8 +7,8 @@
 
 #include "../../include/my_sprite.h"
 
-void free_sprite(sprite_t sprite)
+void free_sprite(sprite_t default_sprite)
 {
-    sfSprite_destroy(sprite.sprite);
-    sfTexture_destroy(sprite.texture);
+    sfTexture_destroy(default_sprite.texture);
+    sfSprite_destroy(default_sprite.sprite);
 }

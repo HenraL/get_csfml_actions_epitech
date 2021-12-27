@@ -7,7 +7,10 @@
 
 #include "../../include/my_sprite.h"
 
-sprite_t move_sprite(sprite_t sprite)
+sprite_t move_sprite(sprite_t default_sprite, int x, int y)
 {
-    sfRenderWindow_drawSprite(window, sprite.sprite, state);
+    sfVector2f position = { x,y };
+    default_sprite.position = position;
+    sfSprite_setPosition(default_sprite.sprite, position);
+    return default_sprite;
 }

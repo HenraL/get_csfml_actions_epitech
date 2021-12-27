@@ -7,21 +7,23 @@
 
 // #include <SFML/Graphics.h>
 #include <SFML/Graphics/RenderWindow.h>
-#include <SFML/Graphics/Sprite.h>
-#include <SFML/Graphics/Texture.h>
+// #include <SFML/Graphics/Sprite.h>
+// #include <SFML/Graphics/Texture.h>
 #include <stdlib.h>
 #include "include/my_window.h"
 #include "include/my_lib.h"
+#include "include/my_maths.h"
+#include "include/my_sprite.h"
 
-typedef struct sprite_s {
-    sfSprite *sprite;
-    sfTexture *texture;
-    sfVector2f position;
-    sfVector2f scale;
-    float previous_scale_x;
-    float previous_scale_y;
-    int status;
-} sprite_t;
+// typedef struct sprite_s {
+//     sfSprite *sprite;
+//     sfTexture *texture;
+//     sfVector2f position;
+//     sfVector2f scale;
+//     float previous_scale_x;
+//     float previous_scale_y;
+//     int status;
+// } sprite_t;
 
 // typedef struct s_framebuffer {
 //     unsigned int width;
@@ -29,78 +31,78 @@ typedef struct sprite_s {
 //     sfUint8 *pixels;
 // } framebuffer_t;
 
-void free_sprite(sprite_t default_sprite)
-{
-    sfTexture_destroy(default_sprite.texture);
-    sfSprite_destroy(default_sprite.sprite);
-}
+// void free_sprite(sprite_t default_sprite)
+// {
+//     sfTexture_destroy(default_sprite.texture);
+//     sfSprite_destroy(default_sprite.sprite);
+// }
 
-float calc_percent(float factor, float nb, int up_or_down)
-{
-    float final_result;
-    float resulting_percentage_factor = ((factor / 100) * nb);
-    if (up_or_down == 1) {
-        final_result = nb + resulting_percentage_factor;
-    } else {
-        final_result = nb - resulting_percentage_factor;
-    }
-    return final_result;
-}
+// float calc_percent(float factor, float nb, int up_or_down)
+// {
+//     float final_result;
+//     float resulting_percentage_factor = ((factor / 100) * nb);
+//     if (up_or_down == 1) {
+//         final_result = nb + resulting_percentage_factor;
+//     } else {
+//         final_result = nb - resulting_percentage_factor;
+//     }
+//     return final_result;
+// }
 
-sprite_t rescale_sprite(sprite_t default_sprite, float new_x, float new_y)
-{
-    sfVector2f scale = { new_x, new_y };
-    default_sprite.scale = scale;
-    default_sprite.previous_scale_x = new_x;
-    default_sprite.previous_scale_y = new_y;
-    sfSprite_setScale(default_sprite.sprite, scale);
-    return default_sprite;
-}
+// sprite_t rescale_sprite(sprite_t default_sprite, float new_x, float new_y)
+// {
+//     sfVector2f scale = { new_x, new_y };
+//     default_sprite.scale = scale;
+//     default_sprite.previous_scale_x = new_x;
+//     default_sprite.previous_scale_y = new_y;
+//     sfSprite_setScale(default_sprite.sprite, scale);
+//     return default_sprite;
+// }
 
-sprite_t rescale_sprite_by_percent(sprite_t default_sprite, float fact, int up)
-{
-    float new_x = 0;
-    float new_y = 0;
-    new_x = calc_percent(fact, default_sprite.previous_scale_x, up);
-    new_y = calc_percent(fact, default_sprite.previous_scale_y, up);
-    default_sprite = rescale_sprite(default_sprite, new_x, new_y);
-    return default_sprite;
-}
+// sprite_t rescale_sprite_by_percent(sprite_t default_sprite, float fact, int up)
+// {
+//     float new_x = 0;
+//     float new_y = 0;
+//     new_x = calc_percent(fact, default_sprite.previous_scale_x, up);
+//     new_y = calc_percent(fact, default_sprite.previous_scale_y, up);
+//     default_sprite = rescale_sprite(default_sprite, new_x, new_y);
+//     return default_sprite;
+// }
 
-sprite_t move_sprite(sprite_t default_sprite, int x, int y)
-{
-    sfVector2f position = { x,y };
-    default_sprite.position = position;
-    sfSprite_setPosition(default_sprite.sprite, position);
-    return default_sprite;
-}
+// sprite_t move_sprite(sprite_t default_sprite, int x, int y)
+// {
+//     sfVector2f position = { x,y };
+//     default_sprite.position = position;
+//     sfSprite_setPosition(default_sprite.sprite, position);
+//     return default_sprite;
+// }
 
-sprite_t load_sprite(char *image_path)
-{
-    sprite_t default_sprite;
-    default_sprite.texture = sfTexture_createFromFile(image_path, NULL);
-    if (!default_sprite.texture) {
-        default_sprite.status = 84;
-        return default_sprite;
-    }
-    default_sprite.sprite = sfSprite_create();
-    sfSprite_setTexture(default_sprite.sprite, default_sprite.texture, sfFalse);//sfTrue);
-    sfVector2f scale_of_sprite = sfSprite_getScale(default_sprite.sprite);
-    default_sprite.previous_scale_x = scale_of_sprite.x;
-    default_sprite.previous_scale_y = scale_of_sprite.y;
-    default_sprite.status = 0;
-    return default_sprite;
-}
+// sprite_t load_sprite(char *image_path)
+// {
+//     sprite_t default_sprite;
+//     default_sprite.texture = sfTexture_createFromFile(image_path, NULL);
+//     if (!default_sprite.texture) {
+//         default_sprite.status = 84;
+//         return default_sprite;
+//     }
+//     default_sprite.sprite = sfSprite_create();
+//     sfSprite_setTexture(default_sprite.sprite, default_sprite.texture, sfFalse);//sfTrue);
+//     sfVector2f scale_of_sprite = sfSprite_getScale(default_sprite.sprite);
+//     default_sprite.previous_scale_x = scale_of_sprite.x;
+//     default_sprite.previous_scale_y = scale_of_sprite.y;
+//     default_sprite.status = 0;
+//     return default_sprite;
+// }
 
-framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
-{
-    framebuffer_t *framebuffer = malloc(sizeof(framebuffer_t));
+// framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
+// {
+//     framebuffer_t *framebuffer = malloc(sizeof(framebuffer_t));
 
-    framebuffer->width = width;
-    framebuffer->height = height;
-    framebuffer->pixels = malloc(width * height * 32 / 8);
-    return (framebuffer);
-}
+//     framebuffer->width = width;
+//     framebuffer->height = height;
+//     framebuffer->pixels = malloc(width * height * 32 / 8);
+//     return (framebuffer);
+// }
 
 int main2(void)
 {

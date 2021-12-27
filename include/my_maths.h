@@ -16,5 +16,6 @@
 int exponential(int nb, int n);
 void my_sleep(unsigned int time);
 void my_fsleep(char *tIme);
+float calc_percent(float factor, float nb, int up_or_down);
 
 #endif

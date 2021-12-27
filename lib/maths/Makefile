@@ -6,7 +6,8 @@
 ##
 
 SRC	=	exponential.c	\
-		sleep.c
+		sleep.c	\
+		calc_percent.c
 
 SUB_SRC	=	../my/is/my_is_num.c
 

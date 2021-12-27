@@ -6,6 +6,7 @@
 */
 
 #include "../../include/my_sprite.h"
+#include "../../include/my_window.h"
 
 void display_sprite(sfRenderWindow *window, sprite_t sprite,
                     sfRenderStates *state)

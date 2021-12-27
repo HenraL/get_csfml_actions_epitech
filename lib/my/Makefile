@@ -51,10 +51,10 @@ $(NAME):	$(OBJ)
 	ar rc $(NAME) $(OBJ)
 
 clean:
-	del /f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	del /f $(NAME)
+	rm -f $(NAME)
 
 re:	fclean all
 
