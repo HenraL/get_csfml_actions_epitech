@@ -14,7 +14,7 @@
 #include <SFML/Graphics/Texture.h>
 #include <SFML/Graphics/Sprite.h>
 
-#include<stdio.h>
+#include <stdio.h>
 
 #ifndef FRAMEBUFFERH
 typedef struct s_framebuffer {
@@ -31,7 +31,6 @@ typedef struct sleepy {
     int minutes;
     int hours;
 } sleepy;
-
 typedef struct move_s {
     int up;
     int down;
@@ -39,5 +38,19 @@ typedef struct move_s {
     int right;
     int center;
 } move_t;
+typedef struct score_s {
+    int total;
+    int time;
+    int enemies;
+    int coins;
+} score_t;
+typedef struct track_time_s {
+    int silver;
+    int rings;
+    int eggman;
+    int missile;
+    int won;
+    int lost;
+} track_time_t;
 
 #endif

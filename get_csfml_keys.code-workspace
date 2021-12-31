@@ -9,7 +9,10 @@
             "*.txt": "plaintext",
             "event.h": "c",
             "my_key.h": "c",
-            "structs.h": "c"
+            "structs.h": "c",
+            "rect.h": "c",
+            "graphics.h": "c",
+            "my_maths.h": "c"
         }
     }
 }

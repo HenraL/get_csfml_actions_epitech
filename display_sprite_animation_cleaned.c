@@ -24,10 +24,10 @@ int main(void)
     sfRenderWindow *window;
     framebuffer_t *fb;
     /* Window size */
-    int max_width = 1500;
-    int max_height = 700;
-    /* sprite_vars */
-    // Background image settings //
+    int max_width = 1920;//1500;
+    int max_height = 1080;//700;
+/* sprite_vars */
+// Background image settings //
     two_sprites_t bkgd_sprites = load_two_sprite(background_image_path,
                                                  background_image_path,
                                                  1, 0.5);
@@ -54,38 +54,32 @@ int main(void)
     }
     /* Setting the size of the images */
     // Background settings //
-    int background_image_width = 1500;
-    int background_image_height = 700;
-    // path settings //
-    int path_image_width = 1500;//1920;
-    int path_image_height = 700;
+    bkgd_sprites.sprite_widths = 1500;
+    bkgd_sprites.sprite_heights = 700;
+    // path settings //1920x219
+    path_sprites.sprite_widths = 1920;//1920;
+    path_sprites.sprite_heights = 219;
     // ice settings //
-    int ice_image_width = 1500;//1920;
-    int ice_image_height = 700;
+    ice_sprites.sprite_widths = 1920;//1920;
+    ice_sprites.sprite_heights = 219;
     /* initialising index counters */
     // background //
-    int bs1_x = 0;
-    int bs1_y = 0;
-    int bs2_x = background_image_width;
-    int bs2_y = 0;
+    bkgd_sprites = initialise_drag_axis(bkgd_sprites, 0);
+    bkgd_sprites.s2_x = bkgd_sprites.sprite_widths;
     // path //
-    int p_indent_level = 350;
-    int ps1_x = 0;
-    int ps1_y = 0 + p_indent_level;
-    int ps2_x = path_image_width;
-    int ps2_y = 0 + p_indent_level;
+    path_sprites = initialise_drag_axis(path_sprites, 0);
+    path_sprites.indent_level = 350;
+    path_sprites.s1_y = path_sprites.indent_level;
+    path_sprites.s2_x = path_sprites.sprite_widths;
+    path_sprites.s2_y = path_sprites.indent_level;
     // ice //
-    int i_indent_level = p_indent_level + 125;
-    int is1_x = 0;
-    int is1_y = 0 + i_indent_level;
-    int is2_x = ice_image_width;
-    int is2_y = 0 + i_indent_level;
-
-    int count_x = 0;
-    int count_y = 0;
-    int factor = 0;
-    printf("bs1_x = %d\n", bs1_x);
-    printf("bs2_x = %d\n", bs2_x);
+    ice_sprites = initialise_drag_axis(ice_sprites, 0);
+    ice_sprites.indent_level = path_sprites.indent_level + 125;
+    ice_sprites.s1_y = ice_sprites.indent_level;
+    ice_sprites.s2_x = ice_sprites.sprite_widths;
+    ice_sprites.s2_y = ice_sprites.indent_level;
+    printf("bs1_x = %d\n", bkgd_sprites.s1_x);
+    printf("bs2_x = %d\n", bkgd_sprites.s2_x);
     //1- Create the ressources
     window = createWindow(max_width, max_height);
     fb = framebuffer_create(max_width, max_height);
@@ -98,69 +92,34 @@ int main(void)
         }
         /* Move sprites */
         // Background //
-        bkgd_sprites.sprite1 = move_sprite(bkgd_sprites.sprite1, bs1_x, bs1_y);
-        bkgd_sprites.sprite2 = move_sprite(bkgd_sprites.sprite2, bs2_x, bs2_y);
-        // background_sprite3 = move_sprite(background_sprite3, bs3_x, bs3_y);
+        bkgd_sprites = move_two_sprites(bkgd_sprites);
         // path //
-        path_sprites.sprite1 = move_sprite(path_sprites.sprite1, ps1_x, ps1_y);
-        path_sprites.sprite2 = move_sprite(path_sprites.sprite2, ps2_x, ps2_y);
-        // ice //
-        ice_sprites.sprite1 = move_sprite(ice_sprites.sprite1, is1_x, is1_y);
-        ice_sprites.sprite2 = move_sprite(ice_sprites.sprite2, is2_x, is2_y);
+        path_sprites = move_two_sprites(path_sprites);
+        // // ice //
+        ice_sprites = move_two_sprites(ice_sprites);
         /* Display sprites in the window */
         // background //
-        sfRenderWindow_drawSprite(window, bkgd_sprites.sprite1.sprite, NULL);
-        sfRenderWindow_drawSprite(window, bkgd_sprites.sprite2.sprite, NULL);
-        // sfRenderWindow_drawSprite(window, background_sprite3.sprite, NULL);
+        draw_two_sprites(window, bkgd_sprites, NULL);
         // path //
-        sfRenderWindow_drawSprite(window, path_sprites.sprite1.sprite, NULL);
-        sfRenderWindow_drawSprite(window, path_sprites.sprite2.sprite, NULL);
+        draw_two_sprites(window, path_sprites, NULL);
         // ice //
-        sfRenderWindow_drawSprite(window, ice_sprites.sprite1.sprite, NULL);
-        sfRenderWindow_drawSprite(window, ice_sprites.sprite2.sprite, NULL);
+        draw_two_sprites(window, ice_sprites, NULL);
         //v- Display the window
         sfRenderWindow_display(window);
         sfRenderWindow_clear(window, sfBlack);
-        /* Debugging info for vars */
-        // printf("bs1_x = %d\n", bs1_x);
-        // printf("bs2_x = %d\n", bs2_x);
-        /* conditions for the index to reset */
         // Background //
-        if (bs1_x <= (background_image_width * -1)) {
-            // bs1_x = max_width - background_sprite1.previous_scale_x;
-            bs1_x = max_width;
-            // printf("bs1_x = %d\n", bs1_x);
-        }
-        if (bs2_x <= (background_image_width * -1)) {
-            // bs2_x = max_width - background_sprite2.previous_scale_x;
-            bs2_x = max_width;
-            // printf("bs2_x = %d\n", bs2_x);
-        }
+        bkgd_sprites = is_reset_drag_needed(bkgd_sprites, max_width);
         // path //
-        if (ps1_x <= (path_image_width * -1)) {
-            ps1_x = max_width;
-        }
-        if (ps2_x <= (path_image_width * -1)) {
-            ps1_x = max_width;
-        }
+        path_sprites = is_reset_drag_needed(path_sprites, max_width);
         // ice //
-        if (is1_x <= (ice_image_width * -1)) {
-            is1_x = max_width;
-        }
-        if (is2_x <= (ice_image_width * -1)) {
-            is1_x = max_width;
-        }
+        ice_sprites = is_reset_drag_needed(ice_sprites, max_width);
         /*changing values of indexes */
         // background //
-        bs1_x -= 1;
-        bs2_x -= 1;
-        // bs3_x -= 1;
+        bkgd_sprites = change_two_val(bkgd_sprites, 0, 1);
         // path //
-        ps1_x -= 5;
-        ps2_x -= 5;
+        path_sprites = change_two_val(path_sprites, 0, 5);
         // ice //
-        is1_x -= 10;
-        is2_x -= 10;
+        ice_sprites = change_two_val(ice_sprites, 0, 10);
         sfRenderWindow_setFramerateLimit(window, 120);
     }
     sfRenderWindow_destroy(window);
