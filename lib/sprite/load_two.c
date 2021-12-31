@@ -7,7 +7,7 @@
 
 #include "../../include/my_sprite.h"
 
-two_sprites_t load_two_sprite(char *path1, char *path2, float x, float y)
+two_sprites_t load_two_sprite(char *path1, char *path2, float w, float h)
 {
     two_sprites_t sprites;
     sprites.sprite1 = load_sprite(path1);
@@ -20,8 +20,8 @@ two_sprites_t load_two_sprite(char *path1, char *path2, float x, float y)
         sprites.status = 84;
         return sprites;
     }
-    sprites.sprite1 = rescale_sprite(sprites.sprite1, x, y);
-    sprites.sprite2 = rescale_sprite(sprites.sprite2, x, y);
+    sprites.sprite1 = rescale_sprite(sprites.sprite1, w, h);
+    sprites.sprite2 = rescale_sprite(sprites.sprite2, w, h);
     sprites.status = 0;
     return sprites;
 }
