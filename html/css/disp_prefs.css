@@ -1,0 +1,35 @@
+.source {
+  color: grey;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.img_title,
+.img_sub_title {
+  color: rgb(162, 252, 19);
+  background-color: black;
+  font-weight: 800;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+}
+
+.img_sub_title {
+  color: rgba(163, 252, 19, 0.884);
+  background-color: black;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.img_description {
+  color: grey;
+  font-weight: lighter;
+  font-size: medium;
+  text-align: center;
+}
+
+.img_disp {
+  width: 50%;
+}
