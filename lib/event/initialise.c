@@ -7,25 +7,15 @@
 
 #include "../../include/my_event.h"
 
-/*event_to_listen_joystick_t initialise_joystic_events(int value)
+track_actions_t initialise_tracking(int in_game, int max_w, int max_h)
 {
-    event_to_listen_joystick_t events;
-    events.jcon = value;
-    events.jdcon = value;
-    events.jdown = value;
-    events.jmoved = value;
-    events.jup = value;
-    return events;
+    track_actions_t actions;
+    actions.in_game = in_game;
+    actions.max_height = max_h;
+    actions.max_width = max_w;
+    actions.sprint = 0;
+    return actions;
 }
-
-event_to_listen_tactile_t initialise_tactile_events(int value)
-{
-    event_to_listen_tactile_t events;
-    events.tb = value;
-    events.tend = value;
-    events.tm = value;
-    return events;
-}*/
 
 event_to_listen_t initialise_the_events(void)
 {

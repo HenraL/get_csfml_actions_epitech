@@ -1,27 +1,25 @@
 ##
 ## EPITECH PROJECT, 2021
-## my_screensaver - Makefile
+## my_runner - Makefile
 ## File description:
 ## jitter jitter
 ##
 
-SRC	=	initialise.c	\
-		on_event.c	\
-		on_keydown.c	\
-		on_keydown_2.c
+SRC	=	load_an_asset.c	\
+		load_4_assets.c	\
+		assing_dim_for_an_asset.c	\
+		assing_dimensions_for_4_assets.c	\
+		free_an_asset.c	\
+		free_4_assets.c
 
-SUB_SRC	=	../my/str/my_strlen.c	\
-			../my/str/my_revstr.c	\
-			../my/put/my_putchar.c	\
-			../my/put/my_putstr.c	\
-			../my/put/my_putnbr_base.c	\
-			../my/put/my_put_nbr.c
+SUB_SRC	=	../sprite/load.c	\
+			../sprite/rescale.c
 
 OBJ	=	$(SRC:.c=.o)
 
 SUB_OBJ = $(SUB_SRC:.c=.o)
 
-NAME	=	libmyevents.a
+NAME	=	libmyassets.a
 
 all:	$(NAME)
 
