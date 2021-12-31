@@ -1,0 +1,19 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": ".",
+        "liveServer.settings.port": 5501,
+        "files.associations": {
+            "*.txt": "plaintext",
+            "my_window.h": "c",
+            "audio.h": "c",
+            "graphics.h": "c",
+            "MOVE.C": "cpp",
+            "event.h": "c"
+        }
+    }
+}

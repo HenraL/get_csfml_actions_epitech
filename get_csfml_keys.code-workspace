@@ -12,7 +12,9 @@
             "structs.h": "c",
             "rect.h": "c",
             "graphics.h": "c",
-            "my_maths.h": "c"
+            "my_maths.h": "c",
+            "my_sprite.h": "c",
+            "my_mouse.h": "c"
         }
     }
 }

@@ -14,11 +14,13 @@ SRC	=	display_sprite_animation.c
 SRC	=	display_sprite_animation_cleaned.c
 SRC	=	animate_person.c
 SRC	=	title_screen.c
+SRC	=	title_screen_retry.c
 
 OBJ	=	$(SRC:.c=.o)
 
-# NAME = my_runner
-NAME = title_screen
+# NAME	=	my_runner
+# NAME	=	title_screen
+NAME	=	title_screen_retry
 
 LIB	=	-L lib/my/ -lmy	\
 		-L lib/sprite -lmysprite	\

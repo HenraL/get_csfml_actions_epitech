@@ -9,6 +9,7 @@
 #define MY_MOUSE_H_
 
 #include <SFML/Window/Event.h>
+#include <SFML/Window/Mouse.h>
 #include "my_sprite.h"
 
 typedef struct button_s {

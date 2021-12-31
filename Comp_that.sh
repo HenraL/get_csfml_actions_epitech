@@ -7,4 +7,10 @@
 
 make re
 # ./my_runner
-./title_screen
+# ./title_screen
+if [ $# -gt 0 ] 
+then
+    ./title_screen_retry -h
+else
+    ./title_screen_retry
+fi
