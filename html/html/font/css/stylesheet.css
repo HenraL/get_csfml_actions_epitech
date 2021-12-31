@@ -1,0 +1,90 @@
+@import "s_f_f_d/embedded-font.css";
+@import "font_linker.css";
+
+.font_table {
+  border: 5px black solid;
+  /* background-color: white; */
+  /* background-color: black; */
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  padding: 3px;
+  margin: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.font_table_tr {
+  border: 2px black solid;
+  /* color: white; */
+  /* background-color: white; */
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  /* padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px; */
+}
+
+.font_table_td {
+  border: 2px black solid;
+  /* color: white; */
+  background-color: white;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  /* margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px; */
+  text-align: center;
+}
+
+.my_font_to_test {
+  font-family: "algerian";
+}
+
+.s_f_f_d {
+  font-family: "NiseSegaSonic";
+  font-weight: normal;
+  font-style: normal;
+}
+
+.nice_sonic_font_fontspanda {
+  font-family: "fontspanda";
+  font-weight: normal;
+  font-style: normal;
+}
+
+.main_font_3 {
+  font-family: "main_font_3";
+  font-weight: normal;
+  font-style: normal;
+}
+
+.main_font_3_1 {
+  font-family: "main_font_3_1";
+  font-weight: normal;
+  font-style: normal;
+}
+
+.main_font_3_2 {
+  font-family: "main_font_3_2";
+  font-weight: bold;
+  font-style: bold;
+}

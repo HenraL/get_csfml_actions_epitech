@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "NiseSegaSonic";
+  src: url("s_f_f_d/NiseSegaSonic.eot") format("eot"),
+    url("s_f_f_d/NiseSegaSonic.woff") format("woff"),
+    url("s_f_f_d/NiseSegaSonic.ttf") format("truetype"),
+    url("s_f_f_d/NiseSegaSonic.svg") format("svg");
+}
+
+@font-face {
+  font-family: "fontspanda";
+  src: url("fontspanda/nisesegasonic-webfont.eot") format("eot"),
+    url("fontspanda/nisesegasonic-webfont.woff") format("woff"),
+    url("fontspanda/nisesegasonic-webfont.ttf") format("truetype"),
+    url("fontspanda/nisesegasonic-webfont.svg") format("svg");
+}
+
+@font-face {
+  font-family: "main_font_3";
+  src: url("thefontmagazine/webfont/nice_sega_sonic/nisesegasonic-webfont.eot")
+      format("eot"),
+    url("thefontmagazine/webfont/nice_sega_sonic/nisesegasonic-webfont.woff")
+      format("woff"),
+    url("thefontmagazine/webfont/nice_sega_sonic/nisesegasonic-webfont.ttf")
+      format("truetype"),
+    url("thefontmagazine/webfont/nice_sega_sonic/nisesegasonic-webfont.svg")
+      format("svg");
+}
+
+@font-face {
+  font-family: "main_font_3_1";
+  src: url("thefontmagazine/webfont/nice_sega_sonic/nisesegasonic-webfont.eot")
+      format("eot"),
+    url("thefontmagazine/webfont/nice_sega_sonic/nisesegasonic-webfont.woff")
+      format("woff"),
+    url("thefontmagazine/webfont/nice_sega_sonic/nisesegasonic-webfont.ttf")
+      format("truetype"),
+    url("thefontmagazine/webfont/nice_sega_sonic/nisesegasonic-webfont.svg")
+      format("svg");
+}
+
+/*@font-face {
+  font-family: "main_font_3_2";
+  src: url("thefontmagazine/webfont/Helvetica_bold_oblique/helvetica-boldoblique-webfont.eot")
+      format("eot"),
+    url("thefontmagazine/webfont/Helvetica_bold_oblique/helvetica-boldoblique-webfont.woff")
+      format("woff"),
+    url("thefontmagazine/webfont/Helvetica_bold_oblique/helvetica-boldoblique-webfont.ttf")
+      format("truetype"),
+    url("thefontmagazine/webfont/Helvetica_bold_oblique/helvetica-boldoblique-webfont.svg")
+      format("svg");
+}*/
+
+@font-face {
+  font-family: "main_font_3_2";
+  src: url("thefontmagazine/webfont/Helvetica_bold/helvetica-bol-webfont.eot")
+      format("eot"),
+    url("thefontmagazine/webfont/Helvetica_bold/helvetica-bold-webfont.woff")
+      format("woff"),
+    url("thefontmagazine/webfont/Helvetica_bold/helvetica-bold-webfont.ttf")
+      format("truetype"),
+    url("thefontmagazine/webfont/Helvetica_bold/helvetica-bold-webfont.svg")
+      format("svg");
+}
