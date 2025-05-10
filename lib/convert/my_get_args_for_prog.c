@@ -39,6 +39,7 @@ int get_totality_of_nb(char *arg, int c)
     for (; my_isnum(arg[d]) == 0; d++) {
         temp_nb[d] = arg[d];
     }
+    free(temp_nb)
     return temp;
 }
 
